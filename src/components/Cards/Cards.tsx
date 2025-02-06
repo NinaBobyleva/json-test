@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { getSeminars } from "../../api/seminarsApi";
+import { delSeminars, getSeminars } from "../../api/seminarsApi";
 import { Card } from "../Card/Card";
-import "./cards.scss"
+import "./cards.scss";
 
-type SeminarsType = {
+export type SeminarsType = {
   id: number;
   title: string;
   description: string;
@@ -14,18 +14,37 @@ type SeminarsType = {
 
 export const Cards = () => {
   const [seminars, setSeminars] = useState<SeminarsType[]>([]);
-  console.log(seminars);
 
   useEffect(() => {
     getSeminars().then((res) => {
       setSeminars(res);
     });
   }, []);
+
+  const handleDelete = async ({ id }: { id: number }) => {
+    try {
+      await delSeminars({ id });
+
+      const seminarsResponse = await getSeminars();
+      setSeminars(seminarsResponse);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="container">
-        {seminars.map((el) => (
-            <Card key={el.id} photo={el.photo} title={el.title} desk={el.description} date={el.date} time={el.time} />
-        ))}
+      {seminars.map((el) => (
+        <Card
+          key={el.id}
+          photo={el.photo}
+          title={el.title}
+          id={el.id}
+          description={el.description}
+          date={el.date}
+          time={el.time}
+          handleDelete={handleDelete}
+        />
+      ))}
     </div>
   );
 };

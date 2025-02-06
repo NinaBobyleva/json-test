@@ -7,3 +7,13 @@ export const getSeminars = async () => {
 
   return res;
 };
+
+export const delSeminars = async ({id}: {id: number}) => {
+  const response = await fetch(`${SERVER_URL}/${id}`, {
+    method: 'DELETE'
+  });
+
+  const res = await response.json();
+
+  return res;
+};
