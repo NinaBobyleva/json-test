@@ -1,0 +1,9 @@
+.modalWrapper {
+    position: absolute;
+  &__el {
+    position: relative;
+    top: 140px;
+    left: 447px;
+    z-index: 1;
+  }
+}

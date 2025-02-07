@@ -1,3 +1,4 @@
+import { Button } from "../Button/Button";
 import "./card.scss";
 
 type CardProp = {
@@ -7,7 +8,8 @@ type CardProp = {
   date: string;
   time: string;
   photo: string;
-  handleDelete: ({ id }: { id: number }) => void;
+  setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setId: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const Card = ({
@@ -17,22 +19,27 @@ export const Card = ({
   date,
   time,
   photo,
-  handleDelete,
+  setIsOpenModal,
+  setId,
 }: CardProp) => {
   return (
     <div className="card">
-      <img src={photo} className="card-img" alt="#" />
-      <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-        <p className="card-text">{description}</p>
-        <div className="card-box">
-          <div className="card-date">
-            <p>{date}</p>
-            <p>{time}</p>
+      <img src={photo} className="card__img" alt="#" />
+      <div className="card__body">
+        <h5 className="card__title">{title}</h5>
+        <p className="card__text">{description}</p>
+        <div className="card__box">
+          <div className="card__box-date">
+            <span>{date}</span>
+            <span>{time}</span>
           </div>
-          <button onClick={() => handleDelete({ id })} className="card-btn">
-            Удалить
-          </button>
+          <div className="card__box-btn">
+            {/* <Button title="Редактировать" /> */}
+            <Button title="Удалить" onClick={() => {
+              setIsOpenModal(true);
+              setId(id);
+            }} />
+          </div>
         </div>
       </div>
     </div>

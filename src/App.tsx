@@ -1,7 +1,7 @@
-import { Main } from "./components/Main/Main";
+import { AppRoutes } from "./AppRoutes";
 
 function App() {
-  return <Main />;
+  return <AppRoutes />;
 }
 
 export default App;
