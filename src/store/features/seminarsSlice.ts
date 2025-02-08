@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export type SeminarsType = {
-    id: number;
+    id: string;
     title: string;
     description: string;
     date: string;
@@ -11,10 +11,12 @@ export type SeminarsType = {
 
 type SeminarsStateType = {
     seminars: SeminarsType[];
+    id: string;
 };
 
 const initialState: SeminarsStateType = {
     seminars: [],
+    id: "0",
 };
 
 const seminarsSlice = createSlice({
@@ -23,10 +25,13 @@ const seminarsSlice = createSlice({
     reducers: {
         setSeminars: (state, action: PayloadAction<[]>) => {
             state.seminars = action.payload;
+        },
+        setId: (state, action: PayloadAction<string>) => {
+            state.id = action.payload;
         }
     }
 });
 
 
-export const { setSeminars } = seminarsSlice.actions;
+export const { setSeminars, setId } = seminarsSlice.actions;
 export const seminarsReducers = seminarsSlice.reducer;

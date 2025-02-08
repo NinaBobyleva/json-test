@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
 import "./card.scss";
+import { useAppDispatch } from "../../store/store";
+import { setId } from "../../store/features/seminarsSlice";
 
 type CardProp = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   date: string;
   time: string;
   photo: string;
   setIsOpenModalDelete: React.Dispatch<React.SetStateAction<boolean>>;
-  setId: React.Dispatch<React.SetStateAction<number>>;
 };
 
 export const Card = ({
@@ -21,8 +22,8 @@ export const Card = ({
   time,
   photo,
   setIsOpenModalDelete,
-  setId,
 }: CardProp) => {
+  const dispatch = useAppDispatch();
 
   return (
     <div className="card">
@@ -39,7 +40,7 @@ export const Card = ({
             <Link to={`/edit/${id}`}><Button title="Редактировать" /></Link>
             <Button title="Удалить" onClick={() => {
               setIsOpenModalDelete(true);
-              setId(id);
+              dispatch(setId(id));
             }} />
           </div>
         </div>

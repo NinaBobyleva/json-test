@@ -5,7 +5,7 @@ import "./mainPage.scss";
 export const MainPage = () => {
   return (
     <div className="wrapper">
-      <h1 className="title">Sessions</h1>
+      <h1 className="title">Seminars</h1>
       <Outlet />
       <Main />
     </div>
