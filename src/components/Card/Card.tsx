@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "../Button/Button";
 import "./card.scss";
 
@@ -8,7 +9,7 @@ type CardProp = {
   date: string;
   time: string;
   photo: string;
-  setIsOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsOpenModalDelete: React.Dispatch<React.SetStateAction<boolean>>;
   setId: React.Dispatch<React.SetStateAction<number>>;
 };
 
@@ -19,9 +20,10 @@ export const Card = ({
   date,
   time,
   photo,
-  setIsOpenModal,
+  setIsOpenModalDelete,
   setId,
 }: CardProp) => {
+
   return (
     <div className="card">
       <img src={photo} className="card__img" alt="#" />
@@ -34,9 +36,9 @@ export const Card = ({
             <span>{time}</span>
           </div>
           <div className="card__box-btn">
-            {/* <Button title="Редактировать" /> */}
+            <Link to={`/edit/${id}`}><Button title="Редактировать" /></Link>
             <Button title="Удалить" onClick={() => {
-              setIsOpenModal(true);
+              setIsOpenModalDelete(true);
               setId(id);
             }} />
           </div>

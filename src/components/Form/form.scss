@@ -1,0 +1,29 @@
+.form {
+    padding: 10px 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    &__title {
+        border-radius: 20px;
+        outline: none;
+        border: 0.5px solid #d8d8d8;
+        padding: 8px 12px;
+    }
+    &__textarea {
+        border-radius: 20px;
+        outline: none;
+        border: 0.5px solid #d8d8d8;
+        padding: 10px 12px;
+    }
+    &__box {
+        display: flex;
+        gap: 10px;
+    }
+    &__box-time {
+        border-radius: 20px;
+        outline: none;
+        border: 0.5px solid #d8d8d8;
+        padding: 8px 12px;
+    }
+}
