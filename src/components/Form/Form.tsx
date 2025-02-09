@@ -40,8 +40,6 @@ export const Form = () => {
       return;
     }
 
-    console.log(inputEdit.time);
-
     try {
       await editSeminars({
         id: seminarCard?.id,
@@ -74,12 +72,10 @@ export const Form = () => {
         className="form__title"
       />
       <textarea
-        name=""
         value={inputEdit.description}
         onChange={(e) => {
           setInputEdit({ ...inputEdit, description: e.target.value });
         }}
-        id=""
         className="form__textarea"
       ></textarea>
       <div className="form__box">

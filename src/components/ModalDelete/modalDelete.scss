@@ -1,9 +1,8 @@
 .modalDelete {
-  width: 500px;
   &__title {
     text-align: center;
+    padding: 20px 80px;
     padding-top: 50px;
-    padding-bottom: 20px;
     font-size: 18px;
     font-weight: 700;
   }
@@ -11,6 +10,7 @@
     display: flex;
     justify-content: center;
     gap: 12px;
-    padding-bottom: 30px;
+    padding: 0px 80px;
+    padding-bottom: 50px;
   }
 }

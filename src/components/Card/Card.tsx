@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../Button/Button";
 import "./card.scss";
 import { useAppDispatch } from "../../store/store";
 import { setId } from "../../store/features/seminarsSlice";
+import { paths } from "../../paths";
 
 type CardProp = {
   id: string;
@@ -24,6 +25,7 @@ export const Card = ({
   setIsOpenModalDelete,
 }: CardProp) => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   return (
     <div className="card">
@@ -37,10 +39,11 @@ export const Card = ({
             <span>{time}</span>
           </div>
           <div className="card__box-btn">
-            <Link to={`/edit/${id}`}><Button title="Редактировать" /></Link>
+            <Link to={`/edit/${id}`}><Button title="Редактировать" onClick={() => setIsOpenModalDelete(false)} /></Link>
             <Button title="Удалить" onClick={() => {
               setIsOpenModalDelete(true);
               dispatch(setId(id));
+              navigate(paths.HOME);
             }} />
           </div>
         </div>

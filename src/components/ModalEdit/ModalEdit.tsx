@@ -8,7 +8,7 @@ export const ModalEdit = () => {
     <ModalWrapper>
       <div className="modalEdit">
         <Modal>
-          <h3 className="modalEdit__title">Редактирование</h3>
+          <h3 className="modalEdit__title">Редактирование семинара</h3>
           <Form />
         </Modal>
       </div>
