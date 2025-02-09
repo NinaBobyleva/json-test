@@ -1,50 +1,29 @@
-# React + TypeScript + Vite
+Тестовое задание
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Установка
 
-Currently, two official plugins are available:
+Склонируйте репозиторий и установите зависимости
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Для запуска в development режиме выполните команду
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+npm start
 ```
+
+Приложение будет доступно по адресу: (http://localhost:5173/)
+
+## Описание:
+
+- В этом проекте реализован локальный json-server, запрос данных "семинары" с этого сервера и отрисовка данных на странице. Также есть функционал удаления и редактирования семинаров. После нажатия на кнопку удаления появляется модальное окно для подтверждения действия, после подтверждения на сервер отправляется "DELETE" запрос. Для редактирования семинара реализовано модальное окно, в котором есть возможность отредактировать заголовок, описание, дату и время. При возникновении ошибки на экран выводиться стилизованный текст ошибки. При загрузке данных появляется лоадер. Адаптивный дизайн реализован для мобильной и планшетной версии.
+
+### Технический стек приложения
+
+- React.js
+- TypeScript
+- ESlint
+- Babel
+- SCSS
