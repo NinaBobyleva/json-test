@@ -15,7 +15,6 @@ export const ModalDelete = ({
 }: ModalDeleteProp) => {
   const dispatch = useAppDispatch();
   const id = useAppSelector((state) => state.seminars.id);
-  console.log(id);
   const handleDelete = async ({ id }: { id: string }) => {
     try {
       await delSeminars({ id });

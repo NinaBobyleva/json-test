@@ -1,15 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getSeminars } from "../../api/seminarsApi";
 import { Card } from "../Card/Card";
 import "./cards.scss";
-import { ModalDelete } from "../ModalDelete/ModalDelete";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { setError, setIsLoad, setSeminars } from "../../store/features/seminarsSlice";
 
-export const Cards = () => {
+export const Cards = ({setIsOpenModalDelete}: {setIsOpenModalDelete: React.Dispatch<React.SetStateAction<boolean>>}) => {
   const dispatch = useAppDispatch();
   const seminars = useAppSelector((state) => state.seminars.seminars);
-  const [isOpenModalDelete, setIsOpenModalDelete] = useState(false);
 
   useEffect(() => {
     const getSeminarsData = () => {
@@ -28,11 +26,10 @@ export const Cards = () => {
 
 
     getSeminarsData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="container">
-      {isOpenModalDelete && <ModalDelete setIsOpenModal={setIsOpenModalDelete} />}
       {seminars.map((el) => (
         <Card
           key={el.id}

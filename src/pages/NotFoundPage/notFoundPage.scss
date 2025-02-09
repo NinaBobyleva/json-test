@@ -1,0 +1,17 @@
+.found {
+    padding-top: 300px;
+    text-align: center;
+    &__title {
+        font-weight: 700;
+        font-size: 48px;
+    }
+    &__subtitle {
+        font-weight: 700;
+        font-size: 24px;
+    }
+    &__link {
+        font-weight: 400;
+        font-size: 16px;
+        color: rgb(98, 142, 33);
+    }
+}
