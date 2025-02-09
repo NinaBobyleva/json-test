@@ -1,0 +1,23 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(247, 242, 242);
+  padding-left: calc(50% - 320px / 2);
+  padding-right: calc(50% - 320px / 2);
+  font-family: "Montserrat";
+  @media screen and (min-width: 425px) {
+    padding-left: calc(50% - 380px / 2);
+    padding-right: calc(50% - 380px / 2);
+  }
+  @media screen and (min-width: 1024px) {
+    padding-left: calc(50% - 800px / 2);
+    padding-right: calc(50% - 800px / 2);
+  }
+  @media screen and (min-width: 1300px) {
+    padding-left: calc(50% - 1200px / 2);
+    padding-right: calc(50% - 1200px / 2);
+  }
+}
