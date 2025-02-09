@@ -6,6 +6,7 @@ import { paths } from "../../paths";
 import { useState } from "react";
 import { editSeminars, getSeminars } from "../../api/seminarsApi";
 import { setError, setIsLoad, setSeminars } from "../../store/features/seminarsSlice";
+import { formatDate } from "../../helpers/fornatDate";
 
 export type SeminarEditType = {
   title: string;
@@ -39,12 +40,14 @@ export const Form = () => {
       return;
     }
 
+    console.log(inputEdit.time);
+
     try {
       await editSeminars({
         id: seminarCard?.id,
         title: inputEdit.title,
         description: inputEdit.description,
-        date: inputEdit.date,
+        date: formatDate(inputEdit.date),
         time: inputEdit.time,
         photo: seminarCard?.photo,
       })
@@ -81,7 +84,7 @@ export const Form = () => {
       ></textarea>
       <div className="form__box">
         <input
-          type="text"
+          type="date"
           value={inputEdit.date}
           onChange={(e) => {
             setInputEdit({ ...inputEdit, date: e.target.value });
@@ -89,7 +92,7 @@ export const Form = () => {
           className="form__box-time"
         />
         <input
-          type="text"
+          type="time"
           value={inputEdit.time}
           onChange={(e) => {
             setInputEdit({ ...inputEdit, time: e.target.value });

@@ -8,7 +8,7 @@ export const MainPage = () => {
   const isLoad = useAppSelector((state) => state.seminars.isLoad);
   return (
     <div className="wrapper">
-      <h1 className="title">Seminars</h1>
+      <h1 className="title">Семинары</h1>
       {isLoad ? <div className="load"><img src="./loader/spinner.gif" alt="load" /></div> : null}
       {error ? <p className="err">{error}</p> : <>
           <Outlet />
