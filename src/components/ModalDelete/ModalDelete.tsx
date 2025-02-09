@@ -1,5 +1,5 @@
 import { delSeminars, getSeminars } from "../../api/seminarsApi";
-import { setError, setSeminars } from "../../store/features/seminarsSlice";
+import { setError, setIsLoad, setSeminars } from "../../store/features/seminarsSlice";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { Button } from "../Button/Button";
 import { Modal } from "../Modal/Modal";
@@ -26,6 +26,8 @@ export const ModalDelete = ({
       if (error instanceof Error) {
         dispatch(setError(error.message));
       }
+    } finally {
+      dispatch(setIsLoad(false));
     }
   };
   return (

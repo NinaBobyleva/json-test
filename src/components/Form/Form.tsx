@@ -5,7 +5,7 @@ import { Button } from "../Button/Button";
 import { paths } from "../../paths";
 import { useState } from "react";
 import { editSeminars, getSeminars } from "../../api/seminarsApi";
-import { setError, setSeminars } from "../../store/features/seminarsSlice";
+import { setError, setIsLoad, setSeminars } from "../../store/features/seminarsSlice";
 
 export type SeminarEditType = {
   title: string;
@@ -56,7 +56,7 @@ export const Form = () => {
         dispatch(setError(error.message));
       }
     } finally {
-      console.log("end");
+      dispatch(setIsLoad(false));
     }
   };
 

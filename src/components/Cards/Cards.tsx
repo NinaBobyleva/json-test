@@ -4,7 +4,7 @@ import { Card } from "../Card/Card";
 import "./cards.scss";
 import { ModalDelete } from "../ModalDelete/ModalDelete";
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { setError, setSeminars } from "../../store/features/seminarsSlice";
+import { setError, setIsLoad, setSeminars } from "../../store/features/seminarsSlice";
 
 export const Cards = () => {
   const dispatch = useAppDispatch();
@@ -12,14 +12,22 @@ export const Cards = () => {
   const [isOpenModalDelete, setIsOpenModalDelete] = useState(false);
 
   useEffect(() => {
-    getSeminars().then((res) => {
-      dispatch(setSeminars(res));
-    })
-    .catch((err: unknown) => {
-      if (err instanceof Error) {
-        dispatch(setError(err.message));
-      }
-    })
+    const getSeminarsData = () => {
+      getSeminars().then((res) => {
+        dispatch(setSeminars(res));
+      })
+      .catch((err: unknown) => {
+        if (err instanceof Error) {
+          dispatch(setError(err.message));
+        }
+      })
+      .finally(() => {
+        dispatch(setIsLoad(false));
+      })
+    };
+
+
+    getSeminarsData();
   }, []);
 
   return (

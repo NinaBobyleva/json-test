@@ -13,12 +13,14 @@ type SeminarsStateType = {
     seminars: SeminarsType[];
     id: string;
     error: string;
+    isLoad: boolean;
 };
 
 const initialState: SeminarsStateType = {
     seminars: [],
     id: "",
     error: "",
+    isLoad: true,
 };
 
 const seminarsSlice = createSlice({
@@ -33,10 +35,13 @@ const seminarsSlice = createSlice({
         },
         setError: (state, action: PayloadAction<string>) => {
             state.error = action.payload;
-        }
+        },
+        setIsLoad: (state, action: PayloadAction<boolean>) => {
+            state.isLoad = action.payload;
+        },
     }
 });
 
 
-export const { setSeminars, setId, setError } = seminarsSlice.actions;
+export const { setSeminars, setId, setError, setIsLoad } = seminarsSlice.actions;
 export const seminarsReducers = seminarsSlice.reducer;
