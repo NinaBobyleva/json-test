@@ -29,6 +29,7 @@ export const Form = () => {
     time: seminarCard?.time,
   });
 
+  // Функция отправляет запрос с обновленными данными на сервер и запрашивает обновленные данные с сервера
   const onSaveInputEdit = async () => {
     if (
       !inputEdit.title ||
@@ -40,6 +41,7 @@ export const Form = () => {
       return;
     }
 
+    // Функция formatDate приводит дату к нужному нам виду
     try {
       await editSeminars({
         id: seminarCard?.id,

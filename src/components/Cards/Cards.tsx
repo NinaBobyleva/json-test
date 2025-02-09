@@ -7,8 +7,10 @@ import { setError, setIsLoad, setSeminars } from "../../store/features/seminarsS
 
 export const Cards = ({setIsOpenModalDelete}: {setIsOpenModalDelete: React.Dispatch<React.SetStateAction<boolean>>}) => {
   const dispatch = useAppDispatch();
+  // Запрос данных из хранилища
   const seminars = useAppSelector((state) => state.seminars.seminars);
 
+  // Запрос данных с сервера, после запроса данные отправляются в хранилище Redux
   useEffect(() => {
     const getSeminarsData = () => {
       getSeminars().then((res) => {

@@ -12,6 +12,7 @@ export const MainPage = () => {
   return (
     <div className="wrapper">
       <h1 className="title">Семинары</h1>
+      {/*Модалка для подтверждения удаления */}
       {isOpenModalDelete && <ModalDelete setIsOpenModal={setIsOpenModalDelete} />}
       {isLoad ? <div className="load"><img src="./loader/spinner.gif" alt="load" /></div> : null}
       {error ? <p className="err">{error}</p> : <>
