@@ -12,6 +12,14 @@ type EditSeminarType = {
 export const getSeminars = async () => {
   const response = await fetch(SERVER_URL);
 
+  if (response.status === 404) {
+    throw new Error("Данные не найдены.");
+  }
+
+  if (response.status === 500) {
+    throw new Error("Сервер не доступен, попробуйте еще раз.");
+  }
+
   const res = await response.json();
 
   return res;
@@ -21,6 +29,14 @@ export const delSeminars = async ({ id }: { id: string }) => {
   const response = await fetch(`${SERVER_URL}/${id}`, {
     method: "DELETE",
   });
+
+  if (response.status === 404) {
+    throw new Error("Данные не найдены.");
+  }
+
+  if (response.status === 500) {
+    throw new Error("Сервер не доступен, попробуйте еще раз.");
+  }
 
   const res = await response.json();
 
@@ -45,6 +61,14 @@ export const editSeminars = async ({
       photo,
     }),
   });
+
+  if (response.status === 404) {
+    throw new Error("Данные не найдены");
+  }
+
+  if (response.status === 500) {
+    throw new Error("Сервер не доступен, попробуйте еще раз.");
+  }
 
   const res = await response.json();
 

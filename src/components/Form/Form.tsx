@@ -5,7 +5,7 @@ import { Button } from "../Button/Button";
 import { paths } from "../../paths";
 import { useState } from "react";
 import { editSeminars, getSeminars } from "../../api/seminarsApi";
-import { setSeminars } from "../../store/features/seminarsSlice";
+import { setError, setSeminars } from "../../store/features/seminarsSlice";
 
 export type SeminarEditType = {
   title: string;
@@ -20,8 +20,7 @@ export const Form = () => {
   const { id } = useParams();
   const seminars = useAppSelector((state) => state.seminars.seminars);
   const seminarCard = seminars.find((seminar) => String(seminar.id) === id);
-  console.log(seminarCard);
-  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState(false);
   const [inputEdit, setInputEdit] = useState({
     title: seminarCard?.title,
     description: seminarCard?.description,
@@ -36,7 +35,7 @@ export const Form = () => {
       !inputEdit.date ||
       !inputEdit.time
     ) {
-      setError(true);
+      setErrorText(true);
       return;
     }
 
@@ -52,8 +51,12 @@ export const Form = () => {
 
       const editResponse = await getSeminars();
       dispatch(setSeminars(editResponse));
-    } catch (error) {
-      console.log(error);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        dispatch(setError(error.message));
+      }
+    } finally {
+      console.log("end");
     }
   };
 
@@ -103,7 +106,7 @@ export const Form = () => {
             navigate(paths.HOME);
           }}
         />
-        {error && <span className="error">Заполните все поля</span>}
+        {errorText && <span className="error">Заполните все поля</span>}
         <Button
           title="Отменить"
           onClick={(e: React.MouseEvent) => {
