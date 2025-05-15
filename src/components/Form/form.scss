@@ -1,40 +1,50 @@
 .form {
-    padding: 10px 50px;
-    padding-bottom: 30px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  &__title {
+    border-radius: 20px;
+    outline: none;
+    border: 0.5px solid #d8d8d8;
+    padding: 8px 12px;
+  }
+  &__textarea {
+    border-radius: 20px;
+    outline: none;
+    border: 0.5px solid #d8d8d8;
+    padding: 10px 12px;
+  }
+  &__box {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-    &__title {
-        border-radius: 20px;
-        outline: none;
-        border: 0.5px solid #d8d8d8;
-        padding: 8px 12px;
-    }
-    &__textarea {
-        border-radius: 20px;
-        outline: none;
-        border: 0.5px solid #d8d8d8;
-        padding: 10px 12px;
-    }
-    &__box {
-        display: flex;
-        gap: 10px;
-    }
-    &__box-time {
-        border-radius: 20px;
-        outline: none;
-        border: 0.5px solid #d8d8d8;
-        padding: 8px 12px;
-    }
-    &__btn {
-        padding-top: 15px;;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  &__box-time {
+    border-radius: 20px;
+    outline: none;
+    border: 0.5px solid #d8d8d8;
+    padding: 8px 12px;
+  }
+  &__btn {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
 }
 
 .error {
-    text-align: center;
-    color: rgb(255, 0, 0);
+  text-align: center;
+  color: rgb(255, 0, 0);
+}
+
+@media (max-width: 320px) {
+  .form {
+    &__btn {
+      flex-wrap: wrap;
+    }
+  }
 }
