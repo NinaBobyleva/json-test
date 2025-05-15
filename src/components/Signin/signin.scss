@@ -1,0 +1,80 @@
+.signin__modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 20%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.signin__modal {
+  background: #ffffff;
+  border-radius: 28px;
+  max-width: 464px;
+  width: 90%;
+  position: relative;
+}
+
+.signin {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.signin__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.signin__title {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 36px;
+  color: #000000;
+  text-align: center;
+  padding-bottom: 8px;
+  margin: 0;
+}
+
+.signin__inputBox {
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.signin__input {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.signin__btnBox {
+  padding-bottom: 25px;
+}
+
+.error__text {
+  margin: 0;
+  color: #ff0000;
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+@media (max-width: 520px) {
+  .signin {
+    padding: 24px;
+  }
+
+  .signin__title {
+    font-size: 28px;
+  }
+}

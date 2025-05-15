@@ -1,6 +1,26 @@
-.btn {
-  padding: 7px 10px;
-  border-radius: 20px;
-  background: #d8d8d8;
-  border: none;
+.button {
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  padding: 12px 24px;
+  background: rgba(54, 151, 241, 1);
+  border: 1px solid rgba(54, 151, 241, 1);
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.buttonDisabled {
+  width: 100%;
+  height: 44px;
+  border-radius: 10px;
+  padding: 12px 24px;
+  background: rgba(54, 151, 241, 1);
+  border: 1px solid rgba(54, 151, 241, 1);
+  opacity: 50%;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
 }

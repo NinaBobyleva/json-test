@@ -1,13 +1,13 @@
 import "./button.scss";
 
 type ButtonProp = {
-    title: string;
-    onClick: (e: React.MouseEvent) => void;
-}
+  title: string;
+  onClick?: (e: React.MouseEvent) => void;
+};
 
-export const Button = ({title, onClick}: ButtonProp) => {
+export const Button = ({ title, onClick }: ButtonProp) => {
   return (
-    <button onClick={onClick} className="btn">
+    <button onClick={onClick} className="button">
       {title}
     </button>
   );
