@@ -1,8 +1,4 @@
-html,
-body,
-#root {
-  margin: 0;
-  padding: 0;
+:root {
   box-sizing: border-box;
   background-color: rgb(247, 242, 242);
   padding-left: calc(50% - 320px / 2);
@@ -20,4 +16,13 @@ body,
     padding-left: calc(50% - 1200px / 2);
     padding-right: calc(50% - 1200px / 2);
   }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: inherit;
 }

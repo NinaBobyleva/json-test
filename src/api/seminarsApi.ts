@@ -1,4 +1,4 @@
-const SERVER_URL = "http://localhost:3001/seminars";
+const BASE_URL = "http://localhost:3001/";
 
 type EditSeminarType = {
   id: string | undefined;
@@ -10,7 +10,7 @@ type EditSeminarType = {
 };
 
 export const getSeminars = async () => {
-  const response = await fetch(SERVER_URL);
+  const response = await fetch(`${BASE_URL}seminars`);
 
   if (response.status === 404) {
     throw new Error("Данные не найдены.");
@@ -26,7 +26,7 @@ export const getSeminars = async () => {
 };
 
 export const delSeminars = async ({ id }: { id: string }) => {
-  const response = await fetch(`${SERVER_URL}/${id}`, {
+  const response = await fetch(`${BASE_URL}seminars/${id}`, {
     method: "DELETE",
   });
 
@@ -51,7 +51,7 @@ export const editSeminars = async ({
   time,
   photo,
 }: EditSeminarType) => {
-  const response = await fetch(`${SERVER_URL}/${id}`, {
+  const response = await fetch(`${BASE_URL}seminars/${id}`, {
     method: "PUT",
     body: JSON.stringify({
       title,

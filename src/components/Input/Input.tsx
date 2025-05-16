@@ -5,6 +5,7 @@ type InputProp = {
   placeholder: string;
   value?: string;
   name?: string;
+  error?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (
     e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -18,10 +19,11 @@ export const Input = ({
   onChange,
   onBlur,
   value,
+  error,
 }: InputProp) => {
   return (
     <input
-    className="input"
+      className={error ? "inputError" : "input"}
       onChange={onChange}
       onBlur={onBlur}
       value={value}

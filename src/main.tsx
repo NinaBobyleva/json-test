@@ -4,13 +4,16 @@ import "./global.scss";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
 import ReduxProvider from "./store/ReduxProvider.tsx";
+// import { UserProvider } from "./context/userContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ReduxProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ReduxProvider>
+    {/* <UserProvider> */}
+      <ReduxProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ReduxProvider>
+    {/* </UserProvider> */}
   </StrictMode>
 );

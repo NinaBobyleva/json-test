@@ -1,11 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { seminarsReducers } from "./features/seminarsSlice"
 import { TypedUseSelectorHook, useDispatch, useSelector, useStore } from "react-redux";
+import { userReducer } from "./features/userSlice";
 
 export const makeStore = () => {
     return configureStore({
         reducer: combineReducers({
             seminars: seminarsReducers,
+            user: userReducer,
         }),
     });
 };
